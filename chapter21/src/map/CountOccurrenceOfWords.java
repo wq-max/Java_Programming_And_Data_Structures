@@ -1,7 +1,7 @@
 package map;
 
-import java.util.Map;
-import java.util.TreeMap;
+
+import java.util.*;
 
 public class CountOccurrenceOfWords {
 
@@ -26,5 +26,13 @@ public class CountOccurrenceOfWords {
         }
         map.forEach((k, v) -> System.out.println(k + "\t" + v));
 
+        System.out.println("\n");
+
+        List<Map.Entry<String, Integer>> entries = new ArrayList<>(map.entrySet());
+        entries.sort((entry1, entry2) -> {
+            return entry1.getValue().compareTo(entry2.getValue());
+        });
+        for (Map.Entry<String, Integer> entry : entries)
+            System.out.println(entry.getKey() + "\t" + entry.getValue());
     }
 }
